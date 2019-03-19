@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lzd.mapper.LeaseCarMapper">
+    <select id="queryAll" resultType="com.lzd.pojo.LeaseCar">
+        select * from tb_carslease
+    </select>
+    <insert id="add">
+        insert into tb_carslease
+        <trim prefix="(" suffix=")" prefixOverrides=",">
+            <if test="brand!=null and brand!=''">
+                ,brand
+            </if>
+            <if test="carsNumber!=null and carsNumber!=''">
+                ,carsNumber
+            </if>
+            <if test="value!=null and value!=''">
+                ,value
+            </if>
+            <if test="status!=null and status!=''">
+                ,status
+            </if>
+            <if test="type!=null and type!=''">
+                ,type
+            </if>
+
+        </trim>
+        <trim prefix="value(" suffix=")" prefixOverrides=",">
+            <if test="brand!=null and brand!=''">
+                ,#{brand}
+            </if>
+            <if test="carsNumber!=null and carsNumber!=''">
+                ,#{carsNumber}
+            </if>
+            <if test="value!=null and value!=''">
+                ,#{value}
+            </if>
+            <if test="status!=null and status!=''">
+                ,#{status}
+            </if>
+            <if test="type!=null and type!=''">
+                ,#{type}
+            </if>
+
+        </trim>
+    </insert>
+    <delete id="delete">
+        delete from tb_carslease where ID like #{id}
+    </delete>
+    <select id="queryById" resultType="com.lzd.pojo.LeaseCar">
+        select * from tb_carslease where ID like #{id}
+    </select>
+    <update id="update">
+        update tb_carslease
+        <set>
+            <if test="brand!=null and brand!=''">
+                brand=#{brand},
+            </if>
+            <if test="carsNumber!=null and carsNumber!=''">
+                carsNumber=#{carsNumber},
+            </if>
+            <if test="value!=null and value!=''">
+                value=#{value},
+            </if>
+            <if test="status!=null and status!=''">
+                status=#{status},
+            </if>
+            <if test="type!=null and type!=''">
+                type=#{type}
+            </if>
+        </set>
+        <where>
+            and  ID=#{ID}
+        </where>
+    </update>
+</mapper>

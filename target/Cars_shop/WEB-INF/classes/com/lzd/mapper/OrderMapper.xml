@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lzd.mapper.OrderMapper">
+    <select id="queryOrder" resultType="com.lzd.pojo.Order">
+        select ID, Name,IssueDate,Linkman,Phone,Whether from tb_orderform order by Whether asc
+    </select>
+    <select id="queryById" resultType="com.lzd.pojo.Order">
+        select ID, Name,IssueDate,Linkman,Phone from tb_orderform
+        <where>
+            <if test="word!=null and word!=''">
+                and ID like #{word}
+            </if>
+        </where>
+    </select>
+    <select id="queryByName" resultType="com.lzd.pojo.Order">
+        select ID, Name,IssueDate,Linkman,Phone from tb_orderform where Name like concat('%',#{word},'%')
+    </select>
+    <select id="queryByLinkman" resultType="com.lzd.pojo.Order">
+        select ID, Name,IssueDate,Linkman,Phone from tb_orderform where Linkman like concat('%',#{word},'%')
+    </select>
+    <select id="queryById1" resultType="com.lzd.pojo.Order">
+        select * from tb_orderform where ID like #{id}
+    </select>
+    <delete id="delete">
+        delete from tb_orderform where ID like #{id}
+    </delete>
+    <update id="deal">
+        update tb_orderform
+        <set>
+            Whether=1
+        </set>
+        <where>
+            and ID like #{id}
+        </where>
+    </update>
+    <insert id="add">
+        insert  into tb_orderform
+        <trim prefix="(" suffix=")" prefixOverrides=",">
+            <if test="Name!=null and Name!=''">
+                ,Name
+            </if>
+            <if test="Counts!=null and Counts!=''">
+                ,Counts
+            </if>
+            <if test="Color!=null and Color!=''">
+                ,Color
+            </if>
+            <if test="Payment!=null and Payment!=''">
+                ,Payment
+            </if>
+            <if test="EnterpriseName!=null and EnterpriseName!=''">
+                ,EnterpriseName
+            </if>
+            <if test="Address!=null and Address!=''">
+                ,Address
+            </if>
+            <if test="Area!=null and Area!=''">
+                ,Area
+            </if>
+            <if test="Dealer!=null and Dealer!=''">
+                ,Dealer
+            </if>
+            <if test="Linkman!=null and Linkman!=''">
+                ,Linkman
+            </if>
+            <if test="Phone!=null and Phone!=''">
+                ,Phone
+            </if>
+            <if test="Remark!=null and Remark!=''">
+                ,Remark
+            </if>
+            <if test="IssueDate!=null">
+                ,IssueDate
+            </if>
+
+        </trim>
+        <trim prefix="value(" suffix=")" prefixOverrides=",">
+            <if test="Name!=null and Name!=''">
+                ,#{Name}
+            </if>
+            <if test="Counts!=null and Counts!=''">
+                ,#{Counts}
+            </if>
+            <if test="Color!=null and Color!=''">
+                ,#{Color}
+            </if>
+            <if test="Payment!=null and Payment!=''">
+                ,#{Payment}
+            </if>
+            <if test="EnterpriseName!=null and EnterpriseName!=''">
+                ,#{EnterpriseName}
+            </if>
+            <if test="Address!=null and Address!=''">
+                ,#{Address}
+            </if>
+            <if test="Area!=null and Area!=''">
+                ,#{Area}
+            </if>
+            <if test="Dealer!=null and Dealer!=''">
+                ,#{Dealer}
+            </if>
+            <if test="Linkman!=null and Linkman!=''">
+                ,#{Linkman}
+            </if>
+            <if test="Phone!=null and Phone!=''">
+                ,#{Phone}
+            </if>
+            <if test="Remark!=null and Remark!=''">
+                ,#{Remark}
+            </if>
+            <if test="IssueDate!=null">
+                ,#{IssueDate}
+            </if>
+        </trim>
+    </insert>
+</mapper>

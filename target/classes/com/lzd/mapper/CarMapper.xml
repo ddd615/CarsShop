@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lzd.mapper.CarMapper">
+<select id="queryCar" resultType="com.lzd.pojo.Car">
+    select * from tb_cars
+</select>
+    <select id="queryByBrand" resultType="com.lzd.pojo.Car">
+        select * from tb_cars where brand like concat('%',#{word},'%')
+     </select>
+    <select id="queryByNum" resultType="com.lzd.pojo.Car">
+        select * from tb_cars where carsNumber like concat('%',#{word},'%')
+     </select>
+    <select id="queryByType" resultType="com.lzd.pojo.Car">
+        select * from tb_cars where type like concat('%',#{word},'%')
+     </select>
+    <insert id="add">
+        insert  into tb_cars
+        <trim prefix="(" suffix=")" prefixOverrides=",">
+            <if test="brand!=null and brand!=''">
+                ,brand
+            </if>
+            <if test="carsNumber!=null and carsNumber!=''">
+                ,carsNumber
+            </if>
+            <if test="value!=null and value!=''">
+                ,value
+            </if>
+            <if test="logo!=null and logo!=''">
+                ,logo
+            </if>
+            <if test="type!=null and type!=''">
+                ,type
+            </if>
+            <if test="message!=null and message!=''">
+                ,message
+            </if>
+
+        </trim>
+        <trim prefix="value(" suffix=")" prefixOverrides=",">
+            <if test="brand!=null and brand!=''">
+                ,#{brand}
+            </if>
+            <if test="carsNumber!=null and carsNumber!=''">
+                ,#{carsNumber}
+            </if>
+            <if test="value!=null and value!=''">
+                ,#{value}
+            </if>
+            <if test="logo!=null and logo!=''">
+                ,#{logo}
+            </if>
+            <if test="type!=null and type!=''">
+                ,#{type}
+            </if>
+            <if test="message!=null and message!=''">
+                ,#{message}
+            </if>
+        </trim>
+    </insert>
+    <delete id="delete">
+        delete from tb_cars where ID like #{id}
+    </delete>
+    <select id="queryById" resultType="com.lzd.pojo.Car">
+        select * from tb_cars where ID like #{id}
+    </select>
+    <update id="update">
+        update tb_cars
+        <set>
+            <if test="brand!=null and brand!=''">
+                brand=#{brand},
+            </if>
+            <if test="carsNumber!=null and carsNumber!=''">
+                carsNumber=#{carsNumber},
+            </if>
+            <if test="value!=null and value!=''">
+                value=#{value},
+            </if>
+            <if test="logo!=null and logo!=''">
+                logo=#{logo},
+            </if>
+            <if test="message!=null and message!=''">
+                message=#{message},
+            </if>
+            <if test="type!=null and type!=''">
+                type=#{type}
+            </if>
+        </set>
+        <where>
+            and  ID=#{ID}
+        </where>
+    </update>
+    <select id="queryi" resultType="com.lzd.pojo.Car">
+        select * from tb_cars where ID like #{i};
+    </select>
+    <select id="queryNew" resultType="com.lzd.pojo.Car">
+        select * from  tb_cars  order by ID desc limit 2
+    </select>
+
+</mapper>

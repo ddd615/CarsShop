@@ -1,0 +1,124 @@
+.xinpin{
+    width: 400px;
+    height: 300px;
+
+    display: inline-block;
+    float: left;
+}
+p{
+    font-size: 20px;
+    text-align: center;
+    text-shadow: 3px 3px 16px #1a66db;
+    color: white;
+}
+
+.xinpin tr{
+     display: block;
+    margin: 20px 10px;
+    width: 360px;
+
+
+}
+.xinpin tr td:last-child{
+    display: inline-block;
+    float: right;
+}
+.xinpin tr td{
+    display: inline-block;
+    color: white;
+}
+.xinpin  a{
+    color: white;
+    text-shadow: 3px 3px 15px #1a66db;
+}
+.xianxi{
+    width: 780px;
+
+
+    display: inline-block;
+    float: right;
+    text-align: center;
+
+}
+.fenlei{
+    width: 400px;
+    height: 400px;
+
+    float: left;
+
+}
+.fenlei ul{
+    width: 100px;
+    margin: 10px auto;
+    text-align: center;
+}
+.fenlei a{
+    font-size: 16px;
+    color:white;
+}
+.fenlei li{
+    margin: 40px 0;
+    text-shadow: 3px 3px 16px #1a66db;
+    position: relative;
+
+}
+.car{
+    font-size: 16px;
+}
+.car label{
+    margin-left: 10px;
+    color: white;
+}
+.car span{
+    color: #1a66db;
+}
+.bc{
+    background: url("../image/bc1.jpg")center no-repeat;
+}
+
+.jiaoche{
+    width: 300px;
+    height: 90px;
+    background: rgba(200,200,200,0.3);
+    position: absolute;
+    bottom: -30px;
+    left: 40px;
+    border-radius: 10px;
+    color: white;
+    display: none;
+
+}
+.paoche{
+    width: 300px;
+    height: 90px;
+    background: rgba(200,200,200,0.3);
+    position: absolute;
+    bottom: -30px;
+    left: 40px;
+    border-radius: 10px;
+    color: white;
+    display: none;
+}
+.mianbaoche{
+    width: 300px;
+    height: 90px;
+    background: rgba(200,200,200,0.3);
+    position: absolute;
+    bottom: -30px;
+    left: 40px;
+    border-radius: 10px;
+    color: white;
+    display: none;
+}
+.huoche{
+    width: 300px;
+    height: 100px;
+    background: rgba(200,200,200,0.3);
+    position: absolute;
+    bottom: -30px;
+    left: 40px;
+    border-radius: 10px;
+    color: white;
+    display: none;
+
+}

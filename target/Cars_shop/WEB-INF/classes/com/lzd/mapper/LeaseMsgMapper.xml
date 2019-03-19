@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lzd.mapper.LeaseMsgMapper">
+    <select id="queryAll" resultType="com.lzd.pojo.LeaseMsg">
+        select * from tb_leasemsg order by status asc
+    </select>
+    <select id="queryById" resultType="com.lzd.pojo.LeaseMsg">
+        select * from  tb_leasemsg where ID like #{id}
+    </select>
+    <update id="update">
+        update tb_leasemsg
+        <set>
+            status=1
+        </set>
+        <where>
+            and ID like #{id}
+        </where>
+    </update>
+    <delete id="delete">
+        delete from tb_leasemsg where ID like #{id}
+    </delete>
+    <insert id="add">
+        insert  into tb_leasemsg
+        <trim prefix="(" suffix=")" prefixOverrides=",">
+            <if test="brand!=null and brand!=''">
+                ,brand
+            </if>
+            <if test="carsNumber!=null and carsNumber!=''">
+                ,carsNumber
+            </if>
+            <if test="day!=null and day!=''">
+                ,day
+            </if>
+            <if test="linkman!=null and linkman!=''">
+                ,linkman
+            </if>
+            <if test="phone!=null and phone!=''">
+                ,phone
+            </if>
+            <if test="createdate!=null ">
+                ,createdate
+            </if>
+
+        </trim>
+        <trim prefix="value(" suffix=")" prefixOverrides=",">
+            <if test="brand!=null and brand!=''">
+                ,#{brand}
+            </if>
+            <if test="carsNumber!=null and carsNumber!=''">
+                ,#{carsNumber}
+            </if>
+            <if test="day!=null and day!=''">
+                ,#{day}
+            </if>
+            <if test="linkman!=null and linkman!=''">
+                ,#{linkman}
+            </if>
+            <if test="phone!=null and phone!=''">
+                ,#{phone}
+            </if>
+            <if test="createdate!=null ">
+                ,#{createdate}
+            </if>
+        </trim>
+    </insert>
+</mapper>

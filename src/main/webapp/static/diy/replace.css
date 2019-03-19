@@ -1,0 +1,19 @@
+.order{
+    width: 480px;
+    margin: 0 auto;
+}
+.content p{
+    font-size: 30px;
+    text-align: center;
+    color:white ;
+    text-shadow: 3px 3px 16px #1a66db;
+
+}
+.bc{
+    background: url("../image/bc4.jpg")center no-repeat;
+}
+.order label{
+    font-size: 16px;
+    color: #298c89;
+    text-shadow: 2px 2px 15px #ff47a2;
+}

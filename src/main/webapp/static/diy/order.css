@@ -1,0 +1,47 @@
+.online{
+
+    color: white;
+    position: relative;
+    display: inline-block;
+}
+.online p{
+    font-size: 30px;
+    text-align: center;
+    text-shadow: 3px 3px 16px #1a66db;
+}
+.online form{
+    margin-top: 20px;
+
+}
+.chenggong{
+    width: 100px;
+    height: 50px;
+    background-color: white;
+
+}
+.sousuo{
+    width: 300px;
+    display: inline-block;
+    margin-top: 20px;
+
+}
+.center{
+    width: 900px;
+
+    display: inline-block;
+    position: absolute;
+    top:0;
+    text-align: center;
+}
+.biaoge{
+    display: inline-block;
+
+
+
+
+}
+.center p{
+    font-size: 30px;
+    color: #F2F2F2;
+    text-shadow: 3px 3px 16px #1a66db;
+}

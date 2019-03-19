@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lzd.mapper.SuggestMapper">
+    <select id="queryAll" resultType="com.lzd.pojo.Suggest">
+        select * from tb_suggest order by status asc
+    </select>
+    <update id="update">
+        update tb_suggest set status=1 where ID like #{id}
+    </update>
+    <delete id="delete">
+        delete from  tb_suggest where ID like #{id}
+    </delete>
+     <insert id="add">
+         insert into tb_suggest
+         <trim prefix="(" suffix=")" prefixOverrides=",">
+         <if test="content!=null and content!=''">
+             ,content
+         </if>
+             <if test="createdate!=null">
+                ,createdate
+             </if>
+         </trim>
+         <trim prefix="value(" suffix=")" prefixOverrides=",">
+             <if test="content!=null and content!=''">
+                 ,#{content}
+             </if>
+             <if test="createdate!=null">
+                 ,#{createdate}
+             </if>
+         </trim>
+     </insert>
+</mapper>

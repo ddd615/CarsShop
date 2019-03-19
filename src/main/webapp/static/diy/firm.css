@@ -1,0 +1,13 @@
+.wenzhang h2{
+    font-size: 3.6rem;
+    margin-top: 50px;
+}
+.wenzhang{
+    text-align: center;
+    height: 340px;
+}
+.wenzhang p{
+    font-size: 1.2rem;
+    width: 720px;
+    margin: 20px auto;
+}

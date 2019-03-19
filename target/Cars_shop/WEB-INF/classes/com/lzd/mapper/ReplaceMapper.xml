@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lzd.mapper.ReplaceMapper">
+    <select id="queryAll" resultType="com.lzd.pojo.Replace">
+        select * from tb_replace order  by status asc
+    </select>
+    <select id="queryById" resultType="com.lzd.pojo.Replace">
+        select * from  tb_replace where ID like #{id}
+    </select>
+    <update id="update">
+        update tb_replace set status=1 where ID like #{id}
+    </update>
+    <insert id="add">
+        insert into  tb_replace (nbrand,obrand,nnum,onum,linkman,phone,ovalue,color,createdate) values (#{nbrand},#{obrand},#{nnum},#{onum},#{linkman},#{phone},#{ovalue},#{color},#{createdate})
+    </insert>
+    <delete id="delete">
+        delete from tb_replace where ID like #{id}
+    </delete>
+    <select id="queryByName" resultType="com.lzd.pojo.Replace">
+        select * from  tb_replace where linkman like  concat('%',#{linkman},'%')
+    </select>
+</mapper>

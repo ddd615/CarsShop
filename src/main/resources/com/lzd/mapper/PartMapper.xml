@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lzd.mapper.PartMapper">
+    <select id="queryAll" resultType="com.lzd.pojo.Part">
+        select * from tb_carpart order by ID asc
+    </select>
+    <select id="queryByName" resultType="com.lzd.pojo.Part">
+        select * from  tb_carpart where name like  concat('%',#{word},'%')
+    </select>
+    <select id="queryByNum" resultType="com.lzd.pojo.Part">
+        select * from  tb_carpart where number like  concat('%',#{word},'%')
+    </select>
+    <select id="queryByType" resultType="com.lzd.pojo.Part">
+        select * from  tb_carpart where type like  concat('%',#{word},'%')
+    </select>
+    <insert id="add">
+        insert  into tb_carpart
+        <trim prefix="(" suffix=")" prefixOverrides=",">
+            <if test="name!=null and name!=''">
+                ,name
+            </if>
+            <if test="number!=null and number!=''">
+                ,number
+            </if>
+            <if test="price!=null and price!=''">
+                ,price
+            </if>
+            <if test="type!=null and type!=''">
+                ,type
+            </if>
+
+
+        </trim>
+        <trim prefix="value(" suffix=")" prefixOverrides=",">
+            <if test="name!=null and name!=''">
+                ,#{name}
+            </if>
+            <if test="number!=null and number!=''">
+                ,#{number}
+            </if>
+            <if test="price!=null and price!=''">
+                ,#{price}
+            </if>
+            <if test="type!=null and type!=''">
+                ,#{type}
+            </if>
+        </trim>
+    </insert>
+    <select id="queryById" resultType="com.lzd.pojo.Part">
+        select * from tb_carpart where ID like #{id}
+    </select>
+    <update id="update">
+        update tb_carpart
+        <set>
+            <if test="name!=null and name!=''">
+                name=#{name},
+            </if>
+            <if test="number!=null and number!=''">
+                number=#{number},
+            </if>
+            <if test="price!=null and price!=''">
+                price=#{price},
+            </if>
+            <if test="type!=null and type!=''">
+                type=#{type},
+            </if>
+        </set>
+        <where>
+            and  ID=#{ID}
+        </where>
+    </update>
+    <delete id="delete">
+        delete from tb_carpart where ID like #{id}
+    </delete>
+</mapper>

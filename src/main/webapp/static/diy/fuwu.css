@@ -1,0 +1,49 @@
+.suggest{
+    width: 550px;
+    display: inline-block;
+
+}
+.suggest p{
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px 20px #1a66db;
+    padding-top:20px ;
+}
+.suggest form{
+    margin-top: 20px;
+}
+.suggest label{
+    color: white;
+}
+.part{
+    width: 550px;
+    display: inline-block;
+    margin-left: 50px;
+
+}
+.part label{
+    color: #ff2f23;
+}
+.part p{
+    font-size: 30px;
+    color: white;
+    text-shadow: 3px 3px 16px #1a66db;
+    text-align: center;
+    padding-bottom: 25px;
+}
+.server p{
+    font-size: 30px;
+    color: white;
+    text-shadow: 3px 3px 16px #1a66db;
+    text-align: center;
+}
+.server{
+    width: 550px;
+}
+.server form{
+    margin: 20px auto;
+}
+.layui-textarea{
+    border: none;
+}
